@@ -2,9 +2,9 @@
 
 ## Welcome! 👋
 
-![Desktop screenshot](./images/screenshot_desktop.PNG)
+![Desktop screenshot](./images/screenshot-desktop.PNG)
 
-![Desktop screenshot](./images/screenshot_mobile.PNG)
+![Mobile screenshot](./images/screenshot-mobile.PNG)
 
 ### Built with
 
