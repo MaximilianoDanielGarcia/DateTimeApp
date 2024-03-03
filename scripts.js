@@ -1,6 +1,7 @@
 const blockquote = document.getElementsByTagName('blockquote')[0];
 const author = document.getElementById('author');
 const country = document.getElementById('country');
+const date = document.getElementById('date');
 const time = document.getElementById('time');
 const zone = document.getElementById('zone');
 const body = document.getElementsByTagName('body')[0];
@@ -16,6 +17,8 @@ const dayOfYear = document.getElementById('day-of-year');
 const dayOfWeek = document.getElementById('day-of-week');
 const weekNumber = document.getElementById('week-number');
 
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
 let widthScreen = window.outerWidth;
 
 window.addEventListener("resize", reportWindowSize);
@@ -25,9 +28,9 @@ function reportWindowSize() {
 }
 
 function openCloseInfoSection() {
-    moreInfoSection.parentElement.classList.toggle('hidden');
+    moreInfoSection.classList.toggle('show');
 
-    if (moreInfoSection.parentElement.classList.contains('hidden')) {
+    if (!moreInfoSection.classList.contains('show')) {
         btnMoreInfo.style.display = 'flex';
         btnLessInfo.style.display = 'none';
 
@@ -65,12 +68,13 @@ async function getDateTime() {
     let hours = newDate.getHours() < 10 ? '0' + newDate.getHours() : newDate.getHours();
     let minutes = newDate.getMinutes() < 10 ? '0' + newDate.getMinutes() : newDate.getMinutes();
 
+    date.innerHTML = `${newDate.getDate()} ${months[newDate.getMonth()]} ${newDate.getFullYear()}`
     time.innerHTML = `${hours}:${minutes}`;
     zone.innerHTML = `GMT${dateTime.abbreviation}`;
 
     let timeZoneSplitted = dateTime.timezone.replace('_', ' ').split('/');
 
-    currentTimeZone.innerHTML = `${timeZoneSplitted[0]}/${timeZoneSplitted[2]}`;
+    currentTimeZone.innerHTML = `${timeZoneSplitted[1]}, ${timeZoneSplitted[2]}`;
     dayOfYear.innerHTML = dateTime.day_of_year;
     dayOfWeek.innerHTML = dateTime.day_of_week;
     weekNumber.innerHTML = dateTime.week_number;

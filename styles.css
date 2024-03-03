@@ -80,6 +80,13 @@ main {
             letter-spacing: 2px;
         }
 
+        & .date-zone {
+            text-transform: uppercase;
+            font-size: 22px;
+            font-weight: 200;
+            padding-bottom: 20px;
+        }
+
         & .time-zone {
             display: flex;
             justify-content: start;
@@ -157,15 +164,25 @@ main {
             gap: 30px;
             text-transform: uppercase;
             font-weight: 400;
-            padding: 70px 30px;
+            padding: 0px 30px;
             border-radius: 20px;
             color: #2b2b2b;
             background: rgba(255, 255, 255, 0.3);
+            max-height: 0;
+            overflow-y: hidden;
+            transition-property: max-height, padding;
+            transition-duration: .4s, .5s;
+            transition-timing-function: ease;
 
             &.dark {
                 color: white;
                 background: rgba(0, 0, 0, 0.3);
                 font-weight: 200;
+            }
+
+            &.show {
+                padding: 70px 30px;
+                max-height: 350px;
             }
 
             & > div {
@@ -176,7 +193,8 @@ main {
                 letter-spacing: 1px;
 
                 & .value-info {
-                    font-size: 28px;
+                    padding-left: 20px;
+                    font-size: 26px;
                     font-weight: 700;
                     text-transform: capitalize;
                 }
@@ -218,7 +236,10 @@ main {
             
             & .more-info {
                 gap: 25px;
-                padding: 60px 30px;
+                
+                &.show {
+                    padding: 60px 30px;
+                }
     
                 & > div {
                     font-size: 14px;
@@ -262,13 +283,17 @@ main {
             
             & .more-info {
                 gap: 25px;
-                padding: 45px 25px;
+                
+                &.show {
+                    padding: 45px 25px;
+                }
     
                 & > div {
-                    font-size: 12px;
+                    font-size: 11px;
     
                     & .value-info {
-                        font-size: 17px;
+                        padding-left: 10px;
+                        font-size: 16px;
                     }
                 }
             }
@@ -335,18 +360,21 @@ main {
             & .more-info {
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
                 width: 100%;
-                padding: 40px 30px;
                 border-radius: 0px;
                 border-bottom-right-radius: 20px;
                 border-bottom-left-radius: 20px;
+
+                &.show {
+                    padding: 40px 30px;
+                }
     
                 & > div {
                     font-size: 15px;
     
                     & .value-info {
-                        font-size: 28px;
+                        font-size: 26px;
                     }
                 }
             }
@@ -409,18 +437,21 @@ main {
             & .more-info {
                 display: flex;
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
                 width: 100%;
-                padding: 40px 30px;
                 border-radius: 0px;
                 border-bottom-right-radius: 20px;
                 border-bottom-left-radius: 20px;
+
+                &.show {
+                    padding: 40px 30px;
+                }
     
                 & > div {
-                    font-size: 15px;
+                    font-size: 14px;
     
                     & .value-info {
-                        font-size: 28px;
+                        font-size: 24px;
                     }
                 }
             }
@@ -486,10 +517,13 @@ main {
                 flex-direction: column;
                 gap: 20px;
                 width: 100%;
-                padding: 40px 30px;
                 border-radius: 0px;
                 border-bottom-right-radius: 20px;
                 border-bottom-left-radius: 20px;
+
+                &.show {
+                    padding: 40px 30px;
+                }
     
                 & > div {
                     font-size: 12px;
@@ -568,17 +602,20 @@ main {
                 flex-direction: column;
                 gap: 30px;
                 width: 100%;
-                padding: 50px 20px;
                 border-radius: 0px;
-                background: rgba(255, 255, 255, 0.7);
+                background: rgba(255, 255, 255, 0.6);
                 backdrop-filter: blur(5px);
 
+                &.show {
+                    padding: 50px 20px;
+                }
+
                 & > div {
-                    font-size: 11px;
+                    font-size: 12px;
                     font-weight: 400;
     
                     & .value-info {
-                        font-size: 16px;
+                        font-size: 17px;
                         font-weight: 700;
                     }
                 }
